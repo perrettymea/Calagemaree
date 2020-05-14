@@ -49,7 +49,7 @@ if procedure==1 or procedure==3:
 
 destination=open("Hauteurs_maree_non_calees.txt","w")
 
-fichier_cale=open("Hauteurs_maree_calees.txt","w")
+
 
 #attribution constantes utiles
 if procedure==1 or procedure==3:
@@ -160,20 +160,22 @@ if procedure==1 or procedure==3:
 
     print(calage_arrondi)
 
+    fichier_cale=open("Hauteurs_maree_calees_par_TA.txt","w")
     #calage
     for i in range(0,len(liste_noncalees_splt)):
-        heure_maregraphe2=liste_noncalees_splt[i][0]+" "+liste_noncalees_splt[i][1]
-        fichier_cale.write(heure_maregraphe2)
-        hauteur=float(liste_noncalees_splt[i][2])
-        hauteur_calee=hauteur-calage
-        x = int(hauteur_calee*100)
-        x = (float(x))/100
-        hauteur_calee=x
-        fichier_cale.write("    ")
-        #de la hauteur
-        fichier_cale.write(str(hauteur_calee))
-        #du retour à la ligne
-        fichier_cale.write("\n")
+        if float(liste_noncalees_splt[i][2])>0:
+            heure_maregraphe2=liste_noncalees_splt[i][0]+" "+liste_noncalees_splt[i][1]
+            fichier_cale.write(heure_maregraphe2)
+            hauteur=float(liste_noncalees_splt[i][2])
+            hauteur_calee=hauteur-calage
+            x = int(hauteur_calee*100)
+            x = (float(x))/100
+            hauteur_calee=x
+            fichier_cale.write("    ")
+            #de la hauteur
+            fichier_cale.write(str(hauteur_calee))
+            #du retour à la ligne
+            fichier_cale.write("\n")
 
     #si pas de problème
     print("Votre fichier a bien été calé par rapport au zéro Hydrographique de votre région. Vos données sont présentes dans le .txt Hauteures_maree_calees. ")

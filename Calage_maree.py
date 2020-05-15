@@ -3,7 +3,7 @@
 
 print("WARNING")
 print('Avant toute chose, veuillez vérifier que vos données sont toutes au bon format.')
-print('Vérifiez aussi qu il n y a pas de trous dans votre donnée. Sinon vous n aurez pas de bons résultats')
+
 ##Demande de l'action a effectuer:
 print("Voulez vous caler vos mesures de marée :")
 print("1- Avec une méthode utilisant des tirants d'air ?")
@@ -178,7 +178,7 @@ if procedure==1 or procedure==3:
             fichier_cale.write("\n")
 
     #si pas de problème
-    print("Votre fichier a bien été calé par rapport au zéro Hydrographique de votre région. Vos données sont présentes dans le .txt Hauteures_maree_calees. ")
+    print("Votre fichier a bien été calé par rapport au zéro Hydrographique de votre région. Vos données sont présentes dans le .txt Hauteures_maree_calees_par_TA. ")
     print("")
 
 
